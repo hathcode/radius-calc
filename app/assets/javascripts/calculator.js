@@ -2,19 +2,21 @@ function setRadius(){
   var fd = document.getElementById("fd").value;
   var pd = document.getElementById("pd").value;
   var lt = document.getElementById("lt").value;
+  var st = document.getElementById("st").value;
   var r;
 
   //Convert inputs to numbers
   fd = new Number(fd);
   pd = new Number(pd);
   lt = new Number(lt);
+  st = new Number(st);
 
   //calculate desired radius from parameters
   { if(pd>fd)
     document.getElementById("status").innerHTML = "Problem: Partial Draw can't be more than Full Draw";
     else
-    { r = (pd/fd)*lt*99.5;
-      if(isNaN(fd) || isNaN(pd) || isNaN(lt))
+    { r = (pd/fd)*lt*st;
+      if(isNaN(fd) || isNaN(pd) || isNaN(lt) || isNaN(st))
          document.getElementById("status").innerHTML = "Problem: Inputs must be numbers";
       else
          document.getElementById("r").value = r;
